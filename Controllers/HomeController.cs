@@ -29,6 +29,20 @@ namespace zbd_net.Controllers
             return View();
         }
 
+        [HttpGet("story/{id}")]
+        // public Contact Get(int id)
+        // {
+        //     return _context.Contacts.FirstOrDefault(x => x.Id == id);
+        // }
+        public IActionResult Story(int id)
+        {
+            ViewData["Message"] = "Your story page.";
+            
+            ViewData["Stories"] = _storyContext.story__c.Take(5).ToList();;
+            ViewData["Story"] = _storyContext.story__c.FirstOrDefault(c => c.id == id);            
+            return View();
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

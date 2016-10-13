@@ -1,0 +1,34 @@
+@using zbd_net.Models
+@{
+    ViewData["Title"] = "Home Page";
+    var story = (Story__c) ViewData["Story"];
+    var stories = (List<Story__c>) ViewData["Stories"];
+}
+<div class="row">
+    <div class="col-md-8">
+        <h1>@story.headline__c</h1>
+        <br>
+        <article>
+            <img src="http://images.zawya.com/images/cia/zXLarge/@story.image__c" class="img-responsive" />
+            <br>
+            @Html.Raw(story.body__c)
+        </article>    
+    </div>
+    <div class="col-md-4">
+            <h2 class="text-primary">Top Stories</h2>
+            @foreach (var item in stories) {
+                <div class="media">
+                    <div class="media-left">
+                        <a href="/story/@item.id">
+                            <img class="media-object" src="http://images.zawya.com/images/cia/xtrasmall/@item.image__c" alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="/story/@item.id"><h4 class="media-heading">@item.headline__c</h4></a>
+                    </div>
+                </div>
+            }
+    </div>    
+</div>
+
+
