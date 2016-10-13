@@ -1,0 +1,19 @@
+@model dynamic
+@*ViewData["Message"]*@
+
+ <table class="table">
+     <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+     </thead>   
+@foreach (var item in Model) {
+    <tbody>
+   <tr>
+    <td>@item.firstname</td>
+    <td>@item.lastname</td>
+    <td>@item.email</td>
+   </tr>   
+   </tbody>
+}
+ </table>

@@ -1,8 +1,67 @@
+
+@using zbd_net.Models
 @{
     ViewData["Title"] = "Home Page";
+    var stories = (List<Story__c>) ViewData["Stories"];
+    var contacts = (List<Contact>) ViewData["Contacts"];
 }
+<div class="row">
+    <div class="col-md-12">
+        <div class="jumbotron">
+            <p>This is a sample ASP.NET Core app on heroku.</p>        
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8">
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        @{ var i = 0; }    
+        @foreach (var item in stories) {
+            <li data-target="#myCarousel" data-slide-to="@i" class="@(i == 0 ? "active" : "")"></li>            
+            i = i + 1;
+        }
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        @{ i = 0; }    
+        @foreach (var item in stories) {
+            <div class="item @(i == 0 ? "active" : "")">
+                <img src="http://images.zawya.com/images/cia/zXLarge/@item.image__c" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>                     
+                        <a class="headline" href="/story/@item.id/">
+                            @item.headline__c   
+                        </a>
+                    </p>
+                </div>
+            </div>
+        i = i + 1;
+        }
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>        
+</div>
+</div>
+<div class="col-md-4">
+    <h3 style="margin-top: 0;">Top Contacts</h3>
+    @foreach (var item in contacts) {        
+        <div class="bs-callout bs-callout-primary">
+            <h4 >@item.firstname @item.lastname</h4>
+            <a href="mailto:">@item.email</a>
+        </div>
+    }
+</div>
+</div>
+
+    
+<!--<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -107,3 +166,4 @@
         </ul>
     </div>
 </div>
+-->
