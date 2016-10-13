@@ -34,12 +34,12 @@ namespace zbd_net.Controllers
         // {
         //     return _context.Contacts.FirstOrDefault(x => x.Id == id);
         // }
-        public IActionResult Story(int id)
+        public IActionResult Story(String id)
         {
             ViewData["Message"] = "Your story page.";
             
             ViewData["Stories"] = _storyContext.story__c.Take(5).ToList();;
-            ViewData["Story"] = _storyContext.story__c.FirstOrDefault(c => c.id == id);            
+            ViewData["Story"] = _storyContext.story__c.FirstOrDefault(c => c.story_id__c == id);            
             return View();
         }
 

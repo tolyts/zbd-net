@@ -19,12 +19,12 @@
             @foreach (var item in stories) {
                 <div class="media">
                     <div class="media-left">
-                        <a href="/story/@item.id">
+                        <a href="/story/@item.story_id__c">
                             <img class="media-object" src="http://images.zawya.com/images/cia/xtrasmall/@item.image__c" alt="...">
                         </a>
                     </div>
                     <div class="media-body">
-                        <a href="/story/@item.id"><h4 class="media-heading">@item.headline__c</h4></a>
+                        <a href="/story/@item.story_id__c"><h4 class="media-heading">@item.headline__c</h4></a>
                     </div>
                 </div>
             }
