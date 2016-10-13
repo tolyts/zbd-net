@@ -38,7 +38,7 @@ namespace zbd_net.Controllers
         {
             ViewData["Message"] = "Your story page.";
             
-            ViewData["Stories"] = _storyContext.story__c.Take(5).ToList();;
+            ViewData["Stories"] = _storyContext.story__c.Take(10).ToList();;
             ViewData["Story"] = _storyContext.story__c.FirstOrDefault(c => c.story_id__c == id);            
             return View();
         }
