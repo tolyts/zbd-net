@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using System.ComponentModel.DataAnnotations;
 namespace zbd_net.Models {
     public class Story__c {
@@ -10,6 +11,7 @@ namespace zbd_net.Models {
         public string headline__c { get; set; }
         public string body__c { get; set; }
         public string story_id__c { get; set; }
-        public string image__c { get; set; }     
+        public string image__c { get; set; }        
+        public DateTime transmission_time__c { get; }     
     }
 }
